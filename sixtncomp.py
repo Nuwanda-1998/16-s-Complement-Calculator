@@ -97,16 +97,13 @@ def complementcalculator(num_list):
                 final_number.append(f_number)
     return final_number
 
-
+# Getting number from user
 hex_number = input('enter number to calculate 16s comp: ')
+# Convert the numberr to list
 num_list = splitnumber(hex_number)
-
+# GEtting the list of 16`s complement
 sixns_list = complementcalculator(num_list)
+# Converting list to string number with space
 final_hex_number = ' '.join([str(elem) for elem in sixns_list]) 
+# Printing the final REsult to the console
 print('the result of 16`s complement of number {} is   {} '.format(hex_number, final_hex_number))
-
-
-
-
-# print('this is the equvilant number to the letter {} '.format(lettonum))
-        
