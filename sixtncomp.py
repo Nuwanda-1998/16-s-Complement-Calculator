@@ -1,4 +1,4 @@
-# This is program will calculate the 16s Complement of hexadecimal numbers.
+# This is program will calculate the 16s complement of hexadecimal numbers.
 
 def splitnumber(hex_num):
     """
