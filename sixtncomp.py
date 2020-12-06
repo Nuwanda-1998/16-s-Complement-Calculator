@@ -43,6 +43,15 @@ def letternum(hex_num):
     else:
         return hex_num
 
+def doesneedconvert(num):
+    """
+    check if needs to be converted to letter
+    """
+    if num > 9 :
+        return True
+    else:
+        return False
+
 def complementcalculator(num_list):
     """
     Calculating the 16s complement
@@ -54,30 +63,47 @@ def complementcalculator(num_list):
             if num.isnumeric():
                 int_num = int(num)
                 number = ((15-int_num)+1)
-                final_number.append(number)
+                if doesneedconvert(number):
+                    f_number = numletter(number)
+                else:
+                    f_number = number
+                final_number.append(f_number)
             else:
                 lettonum = letternum(num)
                 int_num = lettonum
                 number = ((15-int_num)+1)
-                final_number.append(number)
+                if doesneedconvert(number):
+                    f_number = numletter(number)
+                else:
+                    f_number = number
+                final_number.append(f_number)
         else:
             if num.isnumeric():
                 int_num = int(num)
                 number = (15-int_num)
-                final_number.append(number)
+                if doesneedconvert(number):
+                    f_number = numletter(number)
+                else:
+                    f_number = number
+                final_number.append(f_number)
             else:
                 lettonum = letternum(num)
                 int_num = lettonum
                 number = (15-int_num)
-                final_number.append(number)
+                if doesneedconvert(number):
+                    f_number = numletter(number)
+                else:
+                    f_number = number
+                final_number.append(f_number)
     return final_number
 
 
 hex_number = input('enter number to calculate 16s comp: ')
 num_list = splitnumber(hex_number)
 
-numii= complementcalculator(num_list)
-print('this is the final result {} '.format(numii))
+sixns_list = complementcalculator(num_list)
+final_hex_number = ' '.join([str(elem) for elem in sixns_list]) 
+print('the result of 16`s complement of number {} is   {} '.format(hex_number, final_hex_number))
 
 
 
